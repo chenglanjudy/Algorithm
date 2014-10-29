@@ -6,3 +6,26 @@
 *  ◦有可能不旋转的哦。​
 *  ◦数组元素有重复
 */
+
+int min(const int a, const int b){
+  return a>b? a:b;
+}
+
+int findMin(int num[],const int left,const int right){
+  while(left < right){
+      if(num[left] < num[right]{
+          return num[left];
+      }
+      
+      int mid = (left + right)/2;
+      
+      if(num[left] < num[mid]){
+        left = mid + 1;
+      }else if(num[left] > num[mid]){
+        rignt = mid;
+      }else{
+        return min(findMin(num,left,mid),findMin(num,mid+1,right));
+      }
+  }
+  return num[left];
+}
